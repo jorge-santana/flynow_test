@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useFlightsQuery } from '../hooks/useFlightsQuery';
 import { Flight } from '../schemas/flightSchema';
@@ -36,12 +36,20 @@ export default function FlightsTable() {
       <tbody>
         {flights.map((flight) => (
           <tr key={flight.id}>
-            <td className="border border-gray-300 px-4 py-2">{flight.airline}</td>
-            <td className="border border-gray-300 px-4 py-2">{flight.flightNumber}</td>
+            <td className="border border-gray-300 px-4 py-2">
+              {flight.airline}
+            </td>
+            <td className="border border-gray-300 px-4 py-2">
+              {flight.flightNumber}
+            </td>
             <td className="border border-gray-300 px-4 py-2">{flight.from}</td>
             <td className="border border-gray-300 px-4 py-2">{flight.to}</td>
-            <td className="border border-gray-300 px-4 py-2">{new Date(flight.departureTime).toLocaleString()}</td>
-            <td className="border border-gray-300 px-4 py-2">{new Date(flight.arrivalTime).toLocaleString()}</td>
+            <td className="border border-gray-300 px-4 py-2">
+              {new Date(flight.departureTime).toLocaleString()}
+            </td>
+            <td className="border border-gray-300 px-4 py-2">
+              {new Date(flight.arrivalTime).toLocaleString()}
+            </td>
             <td className="border border-gray-300 px-4 py-2">
               {flight.price} {flight.currency}
             </td>

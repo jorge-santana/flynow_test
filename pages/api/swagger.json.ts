@@ -74,6 +74,9 @@ const swaggerDocument: OpenAPIV3.Document = {
   },
 };
 
-export default function handler(req: NextApiRequest, res: NextApiResponse): void {
+export default function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+): void {
   res.status(200).json(swaggerDocument);
 }
