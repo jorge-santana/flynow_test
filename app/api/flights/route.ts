@@ -239,7 +239,7 @@ const flights: Flight[] = [
 
 // Route handler for GET requests
 export async function GET(req: NextRequest) {
-  var test = "teste";
+  const test = "teste";
   // Parse query parameters
   const { searchParams } = new URL(req.url);
   const from = searchParams.get('from');
