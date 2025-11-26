@@ -1,17 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-
-// Define the Flight type
-interface Flight {
-  id: string;
-  airline: string;
-  flightNumber: string;
-  from: string;
-  to: string;
-  departureTime: string;
-  arrivalTime: string;
-  price: number;
-  currency: string;
-}
+import { filterFlights } from '../../utils/filterFlights';
 
 // Mocked flight data
 const flights: Flight[] = [
@@ -239,20 +227,14 @@ const flights: Flight[] = [
 
 // Route handler for GET requests
 export async function GET(req: NextRequest) {
-  const test = 'teste';
   // Parse query parameters
   const { searchParams } = new URL(req.url);
-  const from = searchParams.get('from');
-  const to = searchParams.get('to');
-  const date = searchParams.get('date');
+  const from = searchParams.get('from') || undefined;
+  const to = searchParams.get('to') || undefined;
+  const date = searchParams.get('date') || undefined;
 
   // Filter flights based on query parameters
-  const filteredFlights = flights.filter((flight) => {
-    const matchesFrom = from ? flight.from === from : true;
-    const matchesTo = to ? flight.to === to : true;
-    const matchesDate = date ? flight.departureTime.startsWith(date) : true;
-    return matchesFrom && matchesTo && matchesDate;
-  });
+  const filteredFlights = filterFlights(flights, { from, to, date });
 
   // Return the filtered flights as JSON
   return NextResponse.json(filteredFlights);

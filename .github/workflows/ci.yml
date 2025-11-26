@@ -39,6 +39,11 @@ jobs:
           echo "Executando lint... (qualidade)"
           npm run lint
 
+      - name: Rodar vitest
+        run: |
+          echo "Executando vitest... (testes unitários)"
+          npm run test:run
+
       - name: Rodar build
         run: |
           echo "Executando build..."
