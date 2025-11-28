@@ -233,8 +233,18 @@ export async function GET(req: NextRequest) {
   const to = searchParams.get('to') || undefined;
   const date = searchParams.get('date') || undefined;
 
+  // Return 400 if required query parameters are missing
+  if (!from || !to || !date) {
+    return NextResponse.json({ error: 'Missing required query parameters' }, { status: 400 });
+  }
+
   // Filter flights based on query parameters
   const filteredFlights = filterFlights(flights, { from, to, date });
+
+  // Return 404 if no flights are found
+  if (filteredFlights.length === 0) {
+    return NextResponse.json({ error: 'No flights found' }, { status: 404 });
+  }
 
   // Return the filtered flights as JSON
   return NextResponse.json(filteredFlights);

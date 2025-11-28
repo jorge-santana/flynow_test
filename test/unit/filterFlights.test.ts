@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { filterFlights } from './filterFlights';
+import { filterFlights } from '../../app/utils/filterFlights';
 
 describe('filterFlights', () => {
   const flights: Flight[] = [

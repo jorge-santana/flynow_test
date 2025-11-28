@@ -9,7 +9,8 @@
     "lint": "eslint",
     "prettier:check": "prettier --check .",
     "test:watch": "vitest",
-    "test:run": "vitest --run"
+    "test:unit": "vitest --run --config vitest.unit.config.ts",
+    "test:integration": "vitest run --config vitest.integration.config.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.10",
@@ -28,6 +29,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/supertest": "^6.0.3",
     "@types/swagger-ui-react": "^5.18.0",
     "@vitejs/plugin-react": "^5.1.1",
     "@vitest/ui": "^4.0.14",
@@ -37,6 +39,7 @@
     "jsdom": "^27.2.0",
     "prettier": "^3.6.2",
     "prisma": "^7.0.0",
+    "supertest": "^7.1.4",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.0.14"
