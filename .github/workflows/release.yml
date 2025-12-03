@@ -32,7 +32,7 @@ jobs:
       - name: Validate and extract tag
         if: success()
         run: |
-          TAG=$(grep -oP '(?<=nextRelease":\{"version":")[^"]+' semantic-release-output.log || echo "")
+          TAG=$(grep -oP '(?<=Created tag )v[0-9]+\.[0-9]+\.[0-9]+' semantic-release-output.log || echo "")
           if [ -z "$TAG" ]; then
             echo "No new version was created. Skipping Docker build and push."
             echo "SKIP_DOCKER=true" >> $GITHUB_ENV
