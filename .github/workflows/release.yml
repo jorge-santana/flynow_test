@@ -28,14 +28,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run release
 
-      - name: Extract tag from semantic-release
+      - name: Validate and extract tag
         if: success()
         run: |
-          TAG=$(git describe --tags --abbrev=0)
+          TAG=$(grep -oP '(?<=nextRelease":\{"version":")[^"]+' semantic-release-output.log || echo "")
           if [ -z "$TAG" ]; then
             echo "No new version was created. Skipping Docker build and push."
             echo "SKIP_DOCKER=true" >> $GITHUB_ENV
           else
+            echo "New version detected: $TAG"
             echo "TAG=$TAG" >> $GITHUB_ENV
             echo "SKIP_DOCKER=false" >> $GITHUB_ENV
           fi
