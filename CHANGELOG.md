@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/jorge-santana/flynow_test/compare/v1.0.5...v1.0.6) (2025-12-03)
+
+
+### Bug Fixes
+
+* teste ([87b928a](https://github.com/jorge-santana/flynow_test/commit/87b928afc8610bc45c4edd442b45321940fed712))
+
 ## [1.0.5](https://github.com/jorge-santana/flynow_test/compare/v1.0.4...v1.0.5) (2025-12-03)
 
 
