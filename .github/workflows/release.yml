@@ -31,13 +31,14 @@ jobs:
       - name: Extract tag from semantic-release
         if: success()
         run: |
-          TAG=$(git describe --tags --abbrev=0)
+          TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
           if [ -z "$TAG" ]; then
             echo "No new version was created. Skipping Docker build and push."
             echo "SKIP_DOCKER=true" >> $GITHUB_ENV
           else
             echo "TAG=$TAG" >> $GITHUB_ENV
             echo "SKIP_DOCKER=false" >> $GITHUB_ENV
+          fi
 
       - name: Log in to Docker Hub
         if: env.SKIP_DOCKER == 'false'
