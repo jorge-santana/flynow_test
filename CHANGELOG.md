@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/jorge-santana/flynow_test/compare/v1.0.2...v1.0.3) (2025-12-03)
+
+
+### Bug Fixes
+
+* ajusta workflow de empacotamento e publicação ([815f038](https://github.com/jorge-santana/flynow_test/commit/815f038f6fcc8b78295e12e3f90b30cdfb97b0ec))
+
 ## [1.0.2](https://github.com/jorge-santana/flynow_test/compare/v1.0.1...v1.0.2) (2025-12-03)
 
 
