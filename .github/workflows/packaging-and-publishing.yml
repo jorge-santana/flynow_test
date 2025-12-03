@@ -32,8 +32,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build . -t ${{ secrets.DOCKER_USERNAME }}/flynow:${{ steps.extract-tag.outputs.tag }}
+          docker build . -t ${{ secrets.DOCKER_USERNAME }}/flynow:$TAG
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/flynow:${{ steps.extract-tag.outputs.tag }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/flynow:$TAG
